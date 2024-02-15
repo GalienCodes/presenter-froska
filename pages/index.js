@@ -110,7 +110,7 @@ export default function Home() {
       
         console.log("deposit initieated..")        
         const coffeeTxn = await airdropContract.depositAirdropFunds(
-          {value: ethers.utils.parseEther(amount.toString())}
+          ethers.utils.parseEther(amount.toString()),
         );
 
         await coffeeTxn.wait();
