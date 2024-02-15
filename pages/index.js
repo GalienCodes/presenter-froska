@@ -166,17 +166,17 @@ export default function Home() {
         const provider = new ethers.providers.Web3Provider(ethereum, "any");
         const signer = provider.getSigner();
 
-        const froskaTokenContract = new ethers.Contract(
-          froskaToken,
-          froskaABI,
+        const airdropContract = new ethers.Contract(
+          contractAddress,
+          contractABI,
           signer
         );
 
         console.log("Withdrawl initieated..")
-        const Withdrawl = await froskaTokenContract.withdrawRemainingBalance();
+        const Withdrawl = await airdropContract.withdrawRemainingBalance();
         await Withdrawl.wait();
 
-        console.log("Amount approver!");
+        console.log("Done successfully!");
 
       }
     } catch (error) {
